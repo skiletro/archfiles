@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+#hardcoded garbage
+
+class colors:
+    reset='\033[0m'
+    bold='\033[01m'
+    disable='\033[02m'
+    underline='\033[04m'
+    reverse='\033[07m'
+    strikethrough='\033[09m'
+    invisible='\033[08m'
+    class fg:
+        black='\033[30m'
+        red='\033[31m'
+        green='\033[32m'
+        orange='\033[33m'
+        blue='\033[34m'
+        purple='\033[35m'
+        cyan='\033[36m'
+        lightgrey='\033[37m'
+        darkgrey='\033[90m'
+        lightred='\033[91m'
+        lightgreen='\033[92m'
+        yellow='\033[93m'
+        lightblue='\033[94m'
+        pink='\033[95m'
+        lightcyan='\033[96m'
+    class bg:
+        black='\033[40m'
+        red='\033[41m'
+        green='\033[42m'
+        orange='\033[43m'
+        blue='\033[44m'
+        purple='\033[45m'
+        cyan='\033[46m'
+        lightgrey='\033[47m'
+
+fetch = """
+{1}jamie{4}@{1}themis{3}         {0}/{1}\\ 
+{1}os {4}endeavouros {3}    {0}/{1}/  \\{2}\\ 
+{1}te {4}kitty       {3}   {0}/{1}/    \ {2}\ 
+{1}sh {4}fish        {3} {0}/ {1}/     _) {2}) 
+{1}wm {4}hyprland    {3}{0}/_{1}/___-- {2}__- 
+{1}cs {4}catppuccin  {3} {2}/____-- 
+""".format(colors.fg.red, colors.fg.lightblue, colors.fg.cyan, colors.bold, colors.reset)
+
+print(fetch)

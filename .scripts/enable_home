@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+hyprctl keyword monitor "DP-1, 1920x1080@144, auto, 1"
+hyprctl keyword monitor "eDP-1, disable"
+sleep 5
+eww open bar
+printf "done!\n"

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# You can call this script like this:
+# $ ./volumeControl.sh up
+# $ ./volumeControl.sh down
+# $ ./volumeControl.sh mute
+
+function get_volume {
+  pamixer --get-volume
+}
+
+function is_mute {
+  if pamixer --get-volume-human == "muted"; then
+      return 1
+  else
+      return 0
+  fi
+}
+
+function send_notification {
+  if is_mute ; then
+    dunstify -t 650 -i $iconMuted -r 2593 -u normal "muted :)"
+  else
+    volume=$(get_volume)
+    dunstify " Volume" -t 650 -i " " -u normal -r 2593 -h int:value:"$volume"
+  fi
+}
+
+case $1 in
+  up)
+    pamixer -i 5
+    send_notification
+    ;;
+  down)
+    pamixer -d 5
+    send_notification
+    ;;
+  mute)
+    pamixer --set-volume 0
+    send_notification
+    ;;
+esac

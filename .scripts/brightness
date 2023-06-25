@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Requires light and brightnessctl
+# Note: In the future brightnessctl can be removed, but I currently
+#       cannot figure out how to get it to work without sudo.
+
+# You can call this script like this:
+# $ ./brightnessControl.sh up
+# $ ./brightnessControl.sh down
+
+function get_brightness {
+  brightness=$(light)
+  # Removes the decimal place.
+  echo ${brightness%.*}
+}
+
+function send_notification {
+  brightness=$(get_brightness)
+  dunstify "󰃠 Brightness" -t 650 -i " " -u normal -r 2593 -h int:value:"$brightness"
+}
+
+case $1 in
+  up)
+    brightnessctl s 5%+
+    send_notification
+    ;;
+  down)
+    brightnessctl s 5%-
+    send_notification
+    ;;
+esac

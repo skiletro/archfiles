@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# shelter is a discord client mod, this is a crude little script to automate the
+# process of installing it once discord updates again. might need to run it a few
+# times in order to get it fully working :)
+
+read -p "Are you sure you want to install uwu/shelter? (Y/n)" -n 1 -r
+echo #move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    cd /tmp/
+
+    rm -rf shelter/
+    git clone https://github.com/uwu/shelter
+
+    echo "Copying shelter /app/..."
+    sudo cp -r shelter/injectors/desktop/app/ /opt/discord/resources/app/
+    
+    echo "Renaming app.asar..."
+    sudo mv /opt/discord/resources/app.asar /opt/discord/resources/original.asar
+
+    echo "Done!"
+else
+    echo "Exiting..."
+fi
