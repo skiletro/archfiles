@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for f in ./Iosevka/dist/iosevka-eris/ttf/*.ttf; do
+  fontforge -script ./font-patcher $f -out ./patched-fonts
+done
