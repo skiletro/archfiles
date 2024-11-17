@@ -2,8 +2,7 @@
 ⚠️ This repo is now unmaintained as I moved to NixOS, check out the repo <a href="https://github.com/skiletro/nixfiles">here</a>! ⚠️
 </pre>
 
-# .files
-<img src="https://cdn.discordapp.com/attachments/548882548122451980/1122588096257589419/image.png"/>
+# archfiles
 
 ## what am i using?
 ```
